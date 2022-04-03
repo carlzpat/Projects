@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+<title> Digital Clock</title>
+
+<style>
+
+    .display{
+        font-family:Georgia, 'Times New Roman', Times, serif
+    }
+
+</style>
+</head>
+
+<body>
+
+    <p class="display">00:00:00</p>
+
+    <script>
+        const display = document.querySelector('.display');
+
+        function updateDisplay() {
+            const date = new Date();
+            let hour = date.getHours();
+            let minute = date.getMinutes();
+            let seconds = date.getSeconds();
+
+            if (hour < 10) {
+                hour = "0" + hour;
+            }
+
+            if (minute < 10) {
+                minute = "0" + minute;
+            }
+
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+
+            const time = hour + ":" + minute + ":" + seconds;
+
+            display.innerHTML = time;
+        }
+
+        updateDisplay();
+
+        setInterval(updateDisplay, 1000);
+        // 1000 milisecond = 1 second
+    </script>
+
+</body>
+
+</html>
